@@ -8,8 +8,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.get("/", function(req,res) {
 res.sendFile(__dirname+"/index.html");});
 app.post ("/", function(req,res){
-  var wt = req.body.wt;
-  var ht = req.body.ht;
+  var lbskg = req.body.lbskg;
+  lbskg ==1? wt = req.body.wt:wt = req.body.wt * (2.205);
+  var ht = (req.body.htft*12 + Number(req.body.htinch));
   var stmch = req.body.stmch;
   var nck = req.body.nck;
   var wst = Number(req.body.wst);
@@ -29,17 +30,17 @@ if (gender == 1 && losegain == 1 && job == 1) {
   if (bodyFatMale <21) {
 
       leanFactorMale=1;
-      male1 = (wt/2.2) * 1 * 24 * leanFactorMale * 1.3 - 500;
+      male1 = (wt/2.205) * 1 * 24 * leanFactorMale * 1.3 - 500;
       res.send("Your total calories for the day as a man are approximately " + Math.round(male1) + " if you want to lose weight.");
     }
     else if (bodyFatMale > 20 && bodyFatMale < 28 ){
       leanFactorMale = 0.95;
-      male1 = (wt/2.2) * 1 * 24 * leanFactorMale * 1.3 - 500;
+      male1 = (wt/2.205) * 1 * 24 * leanFactorMale * 1.3 - 500;
     res.send("Your total calories for the day as a man are approximately" + Math.round(male1) + " if you want to lose weight.");
     }
     else if (bodyFatMale >= 28) {
       leanFactorMale = 0.85;
-      male1 = (wt/2.2) * 1 * 24 * leanFactorMale * 1.3 - 500;
+      male1 = (wt/2.205) * 1 * 24 * leanFactorMale * 1.3 - 500;
       res.send("Your total calories for the day as a man are approximately" + Math.round(male1) + " if you want to lose weight.");
     }
 
@@ -51,17 +52,17 @@ if (gender == 1 && losegain == 1 && job == 2) {
   if (bodyFatMale <21) {
 
       leanFactorMale=1;
-      male1 = (wt/2.2) * 1 * 24 * leanFactorMale * 1.55 - 500;
+      male1 = (wt/2.205) * 1 * 24 * leanFactorMale * 1.55 - 500;
       res.send("Your total calories for the day as a man are approximately " + Math.round(male1) + " if you want to lose weight.");
     }
     else if (bodyFatMale > 20 && bodyFatMale < 28 ){
       leanFactorMale = 0.95;
-      male1 = (wt/2.2) * 1 * 24 * leanFactorMale * 1.55 - 500;
+      male1 = (wt/2.205) * 1 * 24 * leanFactorMale * 1.55 - 500;
     res.send("Your total calories for the day as a man are approximately" + Math.round(male1) + " if you want to lose weight.");
     }
     else if (bodyFatMale >= 28) {
       leanFactorMale = 0.85;
-      male1 = (wt/2.2) * 1 * 24 * leanFactorMale * 1.55 - 500;
+      male1 = (wt/2.205) * 1 * 24 * leanFactorMale * 1.55 - 500;
       res.send("Your total calories for the day as a man are approximately" + Math.round(male1) + " if you want to lose weight.");
     }
 
@@ -75,22 +76,22 @@ if (gender == 1 && losegain == 1 && job == 2) {
      if (bodyFatFemale <18) {
 
          leanFactorFemale=1;
-         female1 = (wt/2.2) * 0.9 * 24 * leanFactorFemale * 1.3 - 500;
+         female1 = (wt/2.205) * 0.9 * 24 * leanFactorFemale * 1.3 - 500;
          res.send("Your total calories for the day as a woman are approximately " + Math.round(female1) + " if you want to lose weight.");
        }
        else if (bodyFatFemale > 18 && bodyFatFemale < 29 ){
          leanFactorFemale = 0.95;
-         female1 = (wt/2.2) * 0.9 * 24 * leanFactorFemale * 1.3 - 500;
+         female1 = (wt/2.205) * 0.9 * 24 * leanFactorFemale * 1.3 - 500;
        res.send("Your total calories for the day as a woman are approximately " + Math.round(female1) + " if you want to lose weight.");
        }
        else if (bodyFatFemale > 28 && bodyFatFemale < 39) {
          leanFactorFemale = 0.90;
-         female1 = (wt/2.2) * 0.9 * 24 * leanFactorFemale * 1.3 - 500;
+         female1 = (wt/2.205) * 0.9 * 24 * leanFactorFemale * 1.3 - 500;
          res.send("Your total calories for the day as a woman are approximately " + Math.round(female1) + " if you want to lose weight.");
        }
        else if (bodyFatFemale >= 38) {
          leanFactorFemale = 0.85;
-         female1 = (wt/2.2) * 0.9 * 24 * leanFactorFemale * 1.3 - 500;
+         female1 = (wt/2.205) * 0.9 * 24 * leanFactorFemale * 1.3 - 500;
          res.send("Your total calories for the day as a woman are approximately " + Math.round(female1) + " if you want to lose weight.");
 }
        }
@@ -101,27 +102,27 @@ if (gender == 2 && losegain == 1 && job == 2) {
   if (bodyFatFemale <18) {
 
       leanFactorFemale=1;
-      female1 = (wt/2.2) * 0.9 * 24 * leanFactorFemale * 1.55 - 500;
+      female1 = (wt/2.205) * 0.9 * 24 * leanFactorFemale * 1.55 - 500;
       res.send("Your total calories for the day as a woman are approximately " + Math.round(female1) + " if you want to lose weight.");
     }
     else if (bodyFatFemale > 18 && bodyFatFemale < 29 ){
       leanFactorFemale = 0.95;
-      female1 = (wt/2.2) * 0.9 * 24 * leanFactorFemale * 1.55 - 500;
+      female1 = (wt/2.205) * 0.9 * 24 * leanFactorFemale * 1.55 - 500;
     res.send("Your total calories for the day as a woman are approximately " + Math.round(female1) + " if you want to lose weight.");
     }
     else if (bodyFatFemale > 28 && bodyFatFemale < 39) {
       leanFactorFemale = 0.90;
-      female1 = (wt/2.2) * 0.9 * 24 * leanFactorFemale * 1.55 - 500;
+      female1 = (wt/2.205) * 0.9 * 24 * leanFactorFemale * 1.55 - 500;
       res.send("Your total calories for the day as a woman are approximately " + Math.round(female1) + " if you want to lose weight.");
     }
     else if (bodyFatFemale >= 38) {
       leanFactorFemale = 0.85;
-      female1 = (wt/2.2) * 0.9 * 24 * leanFactorFemale * 1.55 - 500;
+      female1 = (wt/2.205) * 0.9 * 24 * leanFactorFemale * 1.55 - 500;
       res.send("Your total calories for the day as a woman are approximately " + Math.round(female1) + " if you want to lose weight.");
 
     }
   }
-console.log(bodyFatFemale);
+console.log(wt);
 
 });
 
