@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nutritional Value Calculator</title>
+  </head>
+  <h1>How many calories should you have in a day?</h1>
+  <h2>Place in your details and find out!</h2>
+
+  <form action="/" method="post">
+        <p>
+        I am a:
+        </p>
+        <input type="radio" name="gender" value=1 />Male<br />
+        <input type="radio" name="gender" value=2 />Female<br />
+
+            <p>
+              And I want to:
+                </p>
+              <input type="radio" name="losegain" value="1">Lose Weight<br />
+              <input type="radio" name="losegain" value="2">Gain Weight<br />
+        <p>
+      Weight
+      </p>
+    <input type="number" name="wt" placeholder="Weight in lbs" />
+    <p>
+      Height
+      </p>
+    <input type="number" name="ht" placeholder="Height in inches" />
+    <br />
+    <p>
+      Around Stomach
+      </p>
+    <input class="Male" type="number" name="stmch" placeholder="Stomach in inches" />
+    <p>
+      Around Neck
+      </p>
+    <input class="Male" type="number" name="nck" placeholder="Neck in inches" />
+    <br />
+    <button type="submit">Calculate</button>
+    <p>
+      My current job:
+      </p>
+    <input type="radio" name="job" value="1">is in an Office<br/>
+    <input type="radio" name="job" value="2">involves lots of standing or walking<br/>
+    <h3>Women</h3>
+    <p>
+      Around Waist
+      </p>
+    <input class="Female" type="number" name="wst" placeholder="Waist in inches" />
+    <p>
+      Around Hips
+      </p>
+    <input class="Female" type="number" name="hps" placeholder="Hips in inches" />
+    <button type="submit">Calculate</button>
+
+    </form>
+  <body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  </body>
+</html>
