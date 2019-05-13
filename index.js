@@ -9,7 +9,7 @@ app.get("/", function(req,res) {
 res.sendFile(__dirname+"/index.html");});
 app.post ("/", function(req,res){
   var lbskg = req.body.lbskg;
-  lbskg ==1? wt = req.body.wt:wt = req.body.wt * (2.205);
+
   var ht = (req.body.htft*12 + Number(req.body.htinch));
   var stmch = req.body.stmch;
   var nck = req.body.nck;
@@ -22,6 +22,14 @@ app.post ("/", function(req,res){
   var femaleLog = (wst+hps)-nck;
   var bodyFatMale = (86.010 * (Math.log10(stmch-nck))) - (70.041 * (Math.log10(ht)))+36.76; //inches
   var bodyFatFemale = (163.205 * (Math.log10(femaleLog))) - (97.684 * (Math.log10(ht)))-78.387; //inches
+
+  function lbs_or_kg() {
+          if (lbskg ==1) { wt = req.body.wt; }
+          else {wt = req.body.wt * 2.205;}
+          return wt;
+        }
+
+  lbs_or_kg();
 
 //Male that wants to lose weight and works in an office
 
@@ -122,8 +130,14 @@ if (gender == 2 && losegain == 1 && job == 2) {
 
     }
   }
+
+console.log(bodyFatFemale);
 console.log(wt);
 
+
+
 });
+
+
 
 app.listen(3000);
